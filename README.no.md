@@ -1,10 +1,10 @@
 <!--
-  Title: Automatiser helligdager i Salesforce
+  Title: Automatiser helligdager og åpningstider i Salesforce
   Description:Automatiser opprettelsen av helligdager for over 100 land i din Salesforce Org. Repoet inkluderer en planlagt flyt mal for automatisk oppretter helligdager under den gjeldende aktive "Organisasjonens arbeidstid" konfigurasjon.
   Author: https://www.linkedin.com/in/hansenerlend/
   -->
 
-# Automatiser helligdager i Salesforce
+# Automatiser hellidager og åpningstider i Salesforce
 
 🚀 **versjon 1.0.1** 🌏
 [Engelsk](https://github.com/ehsky/SF-automate-holidays-in-business-hours/blob/master/README.md),
