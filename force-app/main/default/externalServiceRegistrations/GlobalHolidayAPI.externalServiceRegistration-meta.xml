@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Nager.Date is a popular open source project to query public holidays.</description>
+    <label>GlobalHolidayAPI</label>
+    <namedCredential>Global_holiday_API</namedCredential>
+    <operations>
+        <active>false</active>
+        <name>countryv2availablecountries</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>countryv2countryinfo</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>countryv3availablecountries</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>countryv3countryinfo</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>longweekendv2longweekend</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv1countryjson</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv2istodaypublicholiday</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv2nextpublicholidays</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv2nextpublicholidaysworldwide</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv2publicholidays</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv3istodaypublicholiday</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv3nextpublicholidays</name>
+    </operations>
+    <operations>
+        <active>false</active>
+        <name>publicholidayv3nextpublicholidaysworldwide</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>publicholidayv3publicholidaysv3</name>
+    </operations>
+    <registrationProviderType>Custom</registrationProviderType>
+    <schema>{
+  &quot;openapi&quot;: &quot;3.0.1&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;Nager.Date API&quot;,
+    &quot;description&quot;: &quot;Nager.Date is open source software and is completely free for commercial use. If you would like to support the project you can award a GitHub star ⭐ or even better &lt;a href=&apos;https://github.com/sponsors/nager&apos;&gt;actively support us&lt;/a&gt;&quot;,
+    &quot;contact&quot;: {
+      &quot;name&quot;: &quot;Nager.Date on GitHub&quot;,
+      &quot;url&quot;: &quot;https://github.com/nager/Nager.Date/issues&quot;
+    },
+    &quot;license&quot;: {
+      &quot;name&quot;: &quot;MIT License&quot;,
+      &quot;url&quot;: &quot;https://github.com/nager/Nager.Date/blob/master/LICENSE.md&quot;
+    },
+    &quot;version&quot;: &quot;v1.0&quot;
+  },
+  &quot;paths&quot;: {
+    &quot;/api/v2/CountryInfo&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;Country V2&quot;
+        ],
+        &quot;summary&quot;: &quot;Get country info from request header `accept-language` or from query parameter&quot;,
+        &quot;operationId&quot;: &quot;CountryV2CountryInfo&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/CountryInfoDto&quot;
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/CountryInfoDto&quot;
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/CountryInfoDto&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v2/AvailableCountries&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;Country V2&quot;
+        ],
+        &quot;summary&quot;: &quot;Get all available countries&quot;,
+        &quot;operationId&quot;: &quot;CountryV2AvailableCountries&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/CountryV2Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/CountryV2Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/CountryV2Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v3/CountryInfo/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;Country V3&quot;
+        ],
+        &quot;summary&quot;: &quot;Get country info for the given country&quot;,
+        &quot;operationId&quot;: &quot;CountryV3CountryInfo&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/CountryInfoDto&quot;
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/CountryInfoDto&quot;
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/CountryInfoDto&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v3/AvailableCountries&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;Country V3&quot;
+        ],
+        &quot;summary&quot;: &quot;Get all available countries&quot;,
+        &quot;operationId&quot;: &quot;CountryV3AvailableCountries&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/CountryV3Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/CountryV3Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/CountryV3Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v2/LongWeekend/{year}/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;LongWeekend V2&quot;
+        ],
+        &quot;summary&quot;: &quot;Get long weekends for a given country&quot;,
+        &quot;operationId&quot;: &quot;LongWeekendV2LongWeekend&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;year&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;format&quot;: &quot;int32&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/LongWeekendDto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/LongWeekendDto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/LongWeekendDto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v1/Get/{countryCode}/{year}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V1&quot;
+        ],
+        &quot;summary&quot;: &quot;Get Public Holidays&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV1CountryJson&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;year&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;format&quot;: &quot;int32&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v2/PublicHolidays/{year}/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V2&quot;
+        ],
+        &quot;summary&quot;: &quot;Get Public Holidays&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV2PublicHolidays&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;year&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;format&quot;: &quot;int32&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v2/IsTodayPublicHoliday/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V2&quot;
+        ],
+        &quot;summary&quot;: &quot;Is today a public holiday&quot;,
+        &quot;description&quot;: &quot;The calculation is made on the basis of UTC time to adjust the time please use the offset.&lt;br /&gt;\r\nThis is a special endpoint for `curl`&lt;br /&gt;&lt;br /&gt;\r\n200 = Today is a public holiday&lt;br /&gt;\r\n204 = Today is not a public holiday&lt;br /&gt;&lt;br /&gt;\r\n`STATUSCODE=$(curl --silent --output /dev/stderr --write-out \&quot;%{http_code}\&quot; https://date.nager.at/Api/v2/IsTodayPublicHoliday/AT)`&lt;br /&gt;&lt;br /&gt;\r\n`if [ $STATUSCODE -ne 200 ]; then # error handling; fi`&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV2IsTodayPublicHoliday&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;countyCode&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;offset&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;description&quot;: &quot;utc timezone offset&quot;,
+            &quot;schema&quot;: {
+              &quot;maximum&quot;: 12,
+              &quot;minimum&quot;: -12,
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;format&quot;: &quot;int32&quot;,
+              &quot;default&quot;: 0
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Today is a public holiday&quot;
+          },
+          &quot;204&quot;: {
+            &quot;description&quot;: &quot;Today is not a public holiday&quot;
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Validation failure&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;CountryCode is unknown&quot;
+          }
+        }
+      }
+    },
+    &quot;/api/v2/NextPublicHolidays/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V2&quot;
+        ],
+        &quot;summary&quot;: &quot;Returns the upcoming public holidays for the next 365 days for the given country&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV2NextPublicHolidays&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v2/NextPublicHolidaysWorldwide&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V2&quot;
+        ],
+        &quot;summary&quot;: &quot;Returns the upcoming public holidays for the next 7 days&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV2NextPublicHolidaysWorldwide&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV2Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v3/PublicHolidays/{year}/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V3&quot;
+        ],
+        &quot;summary&quot;: &quot;Get Public Holidays&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV3PublicHolidaysV3&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;year&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;format&quot;: &quot;int32&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Public holidays&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              }
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Validation failure&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;CountryCode is unknown&quot;
+          }
+        }
+      }
+    },
+    &quot;/api/v3/IsTodayPublicHoliday/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V3&quot;
+        ],
+        &quot;summary&quot;: &quot;Is today a public holiday&quot;,
+        &quot;description&quot;: &quot;The calculation is made on the basis of UTC time to adjust the time please use the offset.&lt;br /&gt;\r\nThis is a special endpoint for `curl`&lt;br /&gt;&lt;br /&gt;\r\n200 = Today is a public holiday&lt;br /&gt;\r\n204 = Today is not a public holiday&lt;br /&gt;&lt;br /&gt;\r\n`STATUSCODE=$(curl --silent --output /dev/stderr --write-out \&quot;%{http_code}\&quot; https://date.nager.at/Api/v2/IsTodayPublicHoliday/AT)`&lt;br /&gt;&lt;br /&gt;\r\n`if [ $STATUSCODE -ne 200 ]; then # error handling; fi`&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV3IsTodayPublicHoliday&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;countyCode&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;description&quot;: &quot;&quot;,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;offset&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;description&quot;: &quot;utc timezone offset&quot;,
+            &quot;schema&quot;: {
+              &quot;maximum&quot;: 12,
+              &quot;minimum&quot;: -12,
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;format&quot;: &quot;int32&quot;,
+              &quot;default&quot;: 0
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Today is a public holiday&quot;
+          },
+          &quot;204&quot;: {
+            &quot;description&quot;: &quot;Today is not a public holiday&quot;
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Validation failure&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;CountryCode is unknown&quot;
+          }
+        }
+      }
+    },
+    &quot;/api/v3/NextPublicHolidays/{countryCode}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V3&quot;
+        ],
+        &quot;summary&quot;: &quot;Returns the upcoming public holidays for the next 365 days for the given country&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV3NextPublicHolidays&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;countryCode&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/v3/NextPublicHolidaysWorldwide&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;PublicHolidays V3&quot;
+        ],
+        &quot;summary&quot;: &quot;Returns the upcoming public holidays for the next 7 days&quot;,
+        &quot;operationId&quot;: &quot;PublicHolidayV3NextPublicHolidaysWorldwide&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Success&quot;,
+            &quot;content&quot;: {
+              &quot;text/plain&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              },
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              },
+              &quot;text/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayV3Dto&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  &quot;components&quot;: {
+    &quot;schemas&quot;: {
+      &quot;CountryInfoDto&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;commonName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;CommonName&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;officialName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;OfficialName&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;countryCode&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;CountryCode&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;region&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Region&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;borders&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+              &quot;$ref&quot;: &quot;#/components/schemas/CountryInfoDto&quot;
+            },
+            &quot;description&quot;: &quot;Country Borders&quot;,
+            &quot;nullable&quot;: true
+          }
+        },
+        &quot;additionalProperties&quot;: false,
+        &quot;description&quot;: &quot;CountryInfo Dto&quot;
+      },
+      &quot;CountryV2Dto&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;key&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;value&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;nullable&quot;: true
+          }
+        },
+        &quot;additionalProperties&quot;: false
+      },
+      &quot;CountryV3Dto&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;countryCode&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;nullable&quot;: true
+          }
+        },
+        &quot;additionalProperties&quot;: false
+      },
+      &quot;LongWeekendDto&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;startDate&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;StartDate&quot;,
+            &quot;format&quot;: &quot;date-time&quot;
+          },
+          &quot;endDate&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;EndDate&quot;,
+            &quot;format&quot;: &quot;date-time&quot;
+          },
+          &quot;dayCount&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;description&quot;: &quot;DayCount&quot;,
+            &quot;format&quot;: &quot;int32&quot;
+          },
+          &quot;needBridgeDay&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;description&quot;: &quot;NeedBridgeDay&quot;
+          }
+        },
+        &quot;additionalProperties&quot;: false,
+        &quot;description&quot;: &quot;LongWeekend Dto&quot;
+      },
+      &quot;PublicHolidayType&quot;: {
+        &quot;enum&quot;: [
+          &quot;Public&quot;,
+          &quot;Bank&quot;,
+          &quot;School&quot;,
+          &quot;Authorities&quot;,
+          &quot;Optional&quot;,
+          &quot;Observance&quot;
+        ],
+        &quot;type&quot;: &quot;string&quot;
+      },
+      &quot;PublicHolidayV2Dto&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;date&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;The date&quot;,
+            &quot;format&quot;: &quot;date&quot;
+          },
+          &quot;localName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Local name&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;English name&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;countryCode&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;ISO 3166-1 alpha-2&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;fixed&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;description&quot;: &quot;Is this public holiday every year on the same date&quot;
+          },
+          &quot;global&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;description&quot;: &quot;Is this public holiday in every county (federal state)&quot;
+          },
+          &quot;counties&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;description&quot;: &quot;ISO-3166-2 - Federal states&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;launchYear&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;description&quot;: &quot;The launch year of the public holiday&quot;,
+            &quot;format&quot;: &quot;int32&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;type&quot;: {
+            &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayType&quot;
+          }
+        },
+        &quot;additionalProperties&quot;: false
+      },
+      &quot;PublicHolidayV3Dto&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;date&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;The date&quot;,
+            &quot;format&quot;: &quot;date&quot;
+          },
+          &quot;localName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Local name&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;English name&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;countryCode&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;ISO 3166-1 alpha-2&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;fixed&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;description&quot;: &quot;Is this public holiday every year on the same date&quot;
+          },
+          &quot;global&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;description&quot;: &quot;Is this public holiday in every county (federal state)&quot;
+          },
+          &quot;counties&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;description&quot;: &quot;ISO-3166-2 - Federal states&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;launchYear&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;description&quot;: &quot;The launch year of the public holiday&quot;,
+            &quot;format&quot;: &quot;int32&quot;,
+            &quot;nullable&quot;: true
+          },
+          &quot;types&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+              &quot;$ref&quot;: &quot;#/components/schemas/PublicHolidayType&quot;
+            },
+            &quot;description&quot;: &quot;A list of types the public holiday it is valid&quot;,
+            &quot;nullable&quot;: true
+          }
+        },
+        &quot;additionalProperties&quot;: false
+      }
+    }
+  }
+}</schema>
+    <schemaType>OpenApi3</schemaType>
+    <schemaUrl>/swagger/v1.0/swagger.json</schemaUrl>
+    <serviceBinding>{&quot;compatibleMediaTypes&quot;:{}}</serviceBinding>
+    <status>Complete</status>
+</ExternalServiceRegistration>
