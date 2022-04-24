@@ -3,6 +3,14 @@
   Description: Automate your creation of public holidays for over 100 countries in your salesforce org. This repo includes a template to scheduled Flow that will automatically create holidays under the current active "Organization business hour" config for your org.
   Author: https://www.linkedin.com/in/hansenerlend/
   -->
+## OBS: Work in progress
+**This repo is work in progress.** \
+There is one issue that needs to be fixed first before the example flow can be used. \
+The example flow will create the holiday records and find the default Business hour config, but will not assosicate the holiday records with business hour config. \
+Check out the salesforce ide here https://ideas.salesforce.com/s/idea/a0B8W00000GddBHUAZ/expose-junction-between-business-hours-and-holidays
+
+A potential workarround could be to include a minified version of [apex-mdapi](https://github.com/financialforcedev/apex-mdapi) that can deploy the metadata type [BusinessHoursSettings](https://developer.salesforce.com/docs/atlas.en-us.236.0.api_meta.meta/api_meta/meta_businesshourssettings.htm).
+  
 
 # Automate public holidays in Salesforce
 
