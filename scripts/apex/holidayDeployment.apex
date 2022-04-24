@@ -34,33 +34,47 @@ for (BusinessHours entry : orgBusinessHours) {
   currentBusinessHours.name = entry.Name;
   currentBusinessHours.active = entry.IsActive;
   currentBusinessHours.default_x = entry.IsDefault;
-  currentBusinessHours.fridayEndTime = entry.FridayEndTime;
-  currentBusinessHours.fridayStartTime = entry.FridayStartTime;
-  currentBusinessHours.mondayEndTime = entry.MondayEndTime;
-  currentBusinessHours.mondayStartTime = entry.MondayStartTime;
+  currentBusinessHours.fridayEndTime = String.valueOf(entry.FridayEndTime);
+  currentBusinessHours.fridayStartTime = String.valueOf(entry.FridayStartTime);
+  currentBusinessHours.mondayEndTime = String.valueOf(entry.MondayEndTime);
+  currentBusinessHours.mondayStartTime = String.valueOf(entry.MondayStartTime);
   if (entry.SaturdayEndTime != null) {
-    currentBusinessHours.saturdayEndTime = entry.SaturdayEndTime;
+    currentBusinessHours.saturdayEndTime = String.valueOf(
+      entry.SaturdayEndTime
+    );
   }
 
   if (entry.SaturdayStartTime != null) {
-    currentBusinessHours.saturdayStartTime = entry.SaturdayStartTime;
+    currentBusinessHours.saturdayStartTime = String.valueOf(
+      entry.SaturdayStartTime
+    );
   }
   if (entry.SundayEndTime != null) {
-    currentBusinessHours.sundayEndTime = entry.SundayEndTime;
+    currentBusinessHours.sundayEndTime = String.valueOf(entry.SundayEndTime);
   }
   if (entry.SundayStartTime != null) {
-    currentBusinessHours.sundayStartTime = entry.SundayStartTime;
+    currentBusinessHours.sundayStartTime = String.valueOf(
+      entry.SundayStartTime
+    );
   }
-  currentBusinessHours.thursdayEndTime = entry.ThursdayEndTime;
+  currentBusinessHours.thursdayEndTime = String.valueOf(entry.ThursdayEndTime);
 
-  currentBusinessHours.thursdayStartTime = entry.ThursdayStartTime;
+  currentBusinessHours.thursdayStartTime = String.valueOf(
+    entry.ThursdayStartTime
+  );
 
   currentBusinessHours.timeZoneId = entry.TimeZoneSidKey;
-  currentBusinessHours.tuesdayEndTime = entry.TuesdayEndTime;
+  currentBusinessHours.tuesdayEndTime = String.valueOf(entry.TuesdayEndTime);
 
-  currentBusinessHours.tuesdayStartTime = entry.TuesdayStartTime;
-  currentBusinessHours.wednesdayEndTime = entry.WednesdayEndTime;
-  currentBusinessHours.wednesdayStartTime = entry.WednesdayStartTime;
+  currentBusinessHours.tuesdayStartTime = String.valueOf(
+    entry.TuesdayStartTime
+  );
+  currentBusinessHours.wednesdayEndTime = String.valueOf(
+    entry.WednesdayEndTime
+  );
+  currentBusinessHours.wednesdayStartTime = String.valueOf(
+    entry.WednesdayStartTime
+  );
   System.debug('currentBusinessHours =>' + currentBusinessHours);
 
   businessHoursEntry.add(currentBusinessHours);
